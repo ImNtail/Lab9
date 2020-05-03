@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
+    /*
+    Модифицировать код проекта из лабораторной работы №5 дважды: в
+    первом проекте данные предметной области хранить и обрабатывать в виде
+    двусвязного списка (структуру реализовать самостоятельно), во втором –
+    использовать коллекцию .NET List.
+    */
     public class First2
     {
         enum Pos
