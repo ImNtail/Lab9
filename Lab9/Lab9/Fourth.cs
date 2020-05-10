@@ -16,20 +16,20 @@ namespace Lab9
         */
         public static void Execute()
         {
-            int x = 0, y = 0, z = 0, n = 10, limit = (int)Math.Pow(n, 1.0 / 3.0);
+            int n = 50000, limit = (int)Math.Pow(n, 1.0 / 3.0), count = 0;
             Dictionary<int, int> numbers = new Dictionary<int, int>();
-            for (int i = 1; i <= n; i++)
-            {
-                numbers[i] = 0;
-                for (x = 0; x <= n; x++)
-                    for (y = 0; y <= n; y++)
-                        for (z = 0; z <= n; z++)
-                            if (Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3) == i)
-                                numbers[i]++;
-            }
+            for (int x = 0; x <= limit; x++)
+                for (int y = 0; y <= limit; y++)
+                    for (int z = 0; z <= limit; z++)
+                        if (Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3) <= n && Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3) > 0)
+                            numbers.Add(++count, (int)(Math.Pow(x, 3) + Math.Pow(y, 3) + Math.Pow(z, 3)));
+            int[] coincidences = new int[n+1];
             foreach (var number in numbers)
-                if (number.Value > 2)
-                    Console.WriteLine(number.Key);
+                if (number.Value <= n)
+                    coincidences[number.Value]++;
+            for (int i = 0; i < coincidences.Length; i++)
+                if (coincidences[i] > 2)
+                    Console.WriteLine(i);
         }
     }
 }
